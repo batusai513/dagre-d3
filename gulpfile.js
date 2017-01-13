@@ -205,7 +205,7 @@ function generateVersionJs(pkg) {
 }
 
 function applyTemplate(templateFile, props) {
-    var template = fs.readFileSync(templateFile);
+    var template = fs.readFileSync(templateFile).toString();
     var compiled = _.template(template);
     return compiled(props);
 }
@@ -216,7 +216,7 @@ function applyTemplate(templateFile, props) {
  */
 function readPackageJson() {
     var packageText = fs.readFileSync("package.json");
-    return JSON.parse(packageText);
+    return JSON.parse(packageText.toString());
 }
 
 /**
